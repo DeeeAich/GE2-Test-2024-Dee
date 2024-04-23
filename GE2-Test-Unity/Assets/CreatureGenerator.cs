@@ -16,7 +16,17 @@ public class CreatureGenerator : MonoBehaviour
     private void Awake()
     {
 
+        for(int i = 0; i < length; i++)
+        {
+            if(i == 0)
+            {
 
+
+
+            }
+
+
+        }
 
 
     }
@@ -24,9 +34,9 @@ public class CreatureGenerator : MonoBehaviour
     private void Update()
     {
 
-        float sizeIncrease = Mathf.Sin(Time.deltaTime * frequency) * multiplier * baseSize;
+        float sizeIncrease = Mathf.Sin(Time.deltaTime * frequency * 360) * multiplier * baseSize / 2;
 
-        float objectScale = sizeIncrease * (sizeIncrease < 0 ? -1 : 1) + baseSize;
+        float objectScale = sizeIncrease + baseSize * multiplier/2;
 
         boidFront.transform.localScale = new Vector3(objectScale, objectScale, objectScale);
 
