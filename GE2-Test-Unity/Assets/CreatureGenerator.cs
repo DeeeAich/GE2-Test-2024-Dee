@@ -13,18 +13,46 @@ public class CreatureGenerator : MonoBehaviour
 
     bool paused = true;
 
+    public int testAngle;
+
     private void Awake()
     {
 
+        float midSize = (multiplier / 2) * baseSize;
+
+
+        float zScale = 0;
+
         for(int i = 0; i < length; i++)
         {
-            if(i == 0)
+            GameObject boidPiece;
+
+
+            float sizeChange = midSize * Mathf.Sin(frequency * ((i + 1) / length) * 360);
+
+            float size = midSize + sizeChange + baseSize;
+
+            if (i == 0)
             {
 
+                boidPiece = GameObject.Instantiate(boidFront, transform.position, transform.rotation, null);
 
+                boid = boidPiece.GetComponent<Boid>();
 
+                zScale += size / 2;
+
+                
+            }
+            else
+            {
+                boidPiece = GameObject.Instantiate(boidFollower, transform.position + transform.forward * (-zScale - size/2), transform.rotation, null);
+
+                zScale += size;
+
+                boid.GetComponent<SpineAnimator>().bones.SetValue(boidPiece, i - 1);
             }
 
+            boidPiece.transform.localScale = new Vector3(size, size, size);
 
         }
 
@@ -34,11 +62,6 @@ public class CreatureGenerator : MonoBehaviour
     private void Update()
     {
 
-        float sizeIncrease = Mathf.Sin(Time.deltaTime * frequency * 360) * multiplier * baseSize / 2;
-
-        float objectScale = sizeIncrease + baseSize * multiplier/2;
-
-        boidFront.transform.localScale = new Vector3(objectScale, objectScale, objectScale);
 
         if (Input.GetKeyDown(KeyCode.P) && paused)
         {

@@ -1448,13 +1448,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdbb424b8960a46c2ad2e972e434d2df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  length: 1
+  length: 6
   frequency: 2
   startAngle: 1
   baseSize: 0.2
   multiplier: 4
-  boidFront: {fileID: 0}
+  boidFront: {fileID: 1039729033}
   boidFollower: {fileID: 0}
+  testAngle: 0
 --- !u!4 &1513124102
 Transform:
   m_ObjectHideFlags: 0
