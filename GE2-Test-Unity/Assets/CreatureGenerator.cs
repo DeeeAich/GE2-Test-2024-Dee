@@ -96,7 +96,7 @@ public class CreatureGenerator : MonoBehaviour
             Gizmos.DrawCube(transform.position + transform.forward * -zScale, new Vector3(size, size, size));
 
 
-            theata += frequency * Mathf.PI;
+            theata += frequency * 360 * (1/length);
 
             zScale += size/2;
 

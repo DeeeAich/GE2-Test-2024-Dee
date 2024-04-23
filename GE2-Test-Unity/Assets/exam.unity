@@ -1155,7 +1155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 20
-  frequency: 1.85
+  frequency: 1.44
   startAngle: 44.9
   baseSize: 0.5
   multiplier: 5
