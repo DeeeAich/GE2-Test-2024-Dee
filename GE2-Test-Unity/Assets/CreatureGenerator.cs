@@ -20,13 +20,14 @@ public class CreatureGenerator : MonoBehaviour
     {
 
         float zScale = 0;
+        float theata = startAngle;
 
         for(int i = 0; i < length; i++)
         {
             GameObject boidPiece;
 
 
-            float sizeChange = multiplier * baseSize * Mathf.Sin(frequency * ((i + 1) / length) * Mathf.PI * 360);
+            float sizeChange = multiplier * baseSize * Mathf.Sin(theata);
 
             float size = sizeChange + baseSize;
 
@@ -56,14 +57,14 @@ public class CreatureGenerator : MonoBehaviour
 
             boidPiece.transform.localScale = new Vector3(size, size, size);
 
-        }
+            theata += frequency * (i / (length - 1)) * Mathf.PI; 
 
+        }
 
     }
 
     private void Update()
     {
-
 
         if (Input.GetKeyDown(KeyCode.P) && paused)
         {
@@ -77,10 +78,12 @@ public class CreatureGenerator : MonoBehaviour
     {
         float zScale = 0;
 
+        float theata = startAngle;
+
         for (int i = 0; i < length; i++)
         {
 
-            float sizeChange = multiplier * baseSize * Mathf.Sin(frequency * ((i + 1) / length) * 90);
+            float sizeChange = multiplier * baseSize * Mathf.Sin(theata);
 
             float size = sizeChange + baseSize;
 
@@ -92,10 +95,10 @@ public class CreatureGenerator : MonoBehaviour
 
             Gizmos.DrawCube(transform.position + transform.forward * -zScale, new Vector3(size, size, size));
 
-            
-            zScale += size/2;
-      
 
+            theata += frequency * Mathf.PI;
+
+            zScale += size/2;
 
         }
     }

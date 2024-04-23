@@ -1154,9 +1154,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdbb424b8960a46c2ad2e972e434d2df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  length: 6
-  frequency: 2
-  startAngle: 1
+  length: 20
+  frequency: 1.85
+  startAngle: 44.9
   baseSize: 0.5
   multiplier: 5
   boidFront: {fileID: 6318993159142103578, guid: 6a9272adcc2c245a388ea9ce322ac780,
