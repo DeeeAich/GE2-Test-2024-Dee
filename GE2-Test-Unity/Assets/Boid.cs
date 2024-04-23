@@ -29,7 +29,7 @@ public class Boid : MonoBehaviour
     }
 
     // Use this for initialization
-    void Start()
+    public void StartBoid()
     {
 
         SteeringBehaviour[] behaviours = GetComponents<SteeringBehaviour>();

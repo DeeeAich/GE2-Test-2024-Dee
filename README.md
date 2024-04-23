@@ -4,9 +4,9 @@ Click for a video of the creature creation system you will create today:
 
 [![YouTube](http://img.youtube.com/vi/I_KU-wuzS7c/0.jpg)](https://www.youtube.com/watch?v=I_KU-wuzS7c)
 
-- Fork this repo
-- Clone your fork
-- Open either the Godot or the Unity starter project
+- Fork this repo/
+- Clone your fork/
+- Open either the Godot or the Unity starter project/
 - Open exam_scene 
 - Modify creature_generator.gd
 - Add fields for length, frequency, start_angle, base_size, multiplier
