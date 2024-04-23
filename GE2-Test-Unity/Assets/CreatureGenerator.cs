@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using System;
 
 public class CreatureGenerator : MonoBehaviour
 {
@@ -23,14 +24,18 @@ public class CreatureGenerator : MonoBehaviour
 
         float zScale = 0;
 
+
         for(int i = 0; i < length; i++)
         {
             GameObject boidPiece;
 
 
-            float sizeChange = midSize * Mathf.Sin(frequency * ((i + 1) / length) * 360);
+            float sizeChange = multiplier * baseSize * Mathf.Sin(frequency * ((i + 1) / length) * 90);
 
-            float size = midSize + sizeChange + baseSize;
+            float size = sizeChange + baseSize;
+
+            if (size < 0)
+                size *= -1;
 
             if (i == 0)
             {
@@ -41,6 +46,7 @@ public class CreatureGenerator : MonoBehaviour
 
                 zScale += size / 2;
 
+                boid.GetComponent<SpineAnimator>().bones = new GameObject[(int)length-1];
                 
             }
             else
