@@ -19,18 +19,14 @@ public class CreatureGenerator : MonoBehaviour
     private void Awake()
     {
 
-        float midSize = (multiplier / 2) * baseSize;
-
-
         float zScale = 0;
-
 
         for(int i = 0; i < length; i++)
         {
             GameObject boidPiece;
 
 
-            float sizeChange = multiplier * baseSize * Mathf.Sin(frequency * ((i + 1) / length) * 90);
+            float sizeChange = multiplier * baseSize * Mathf.Sin(frequency * ((i + 1) / length) * Mathf.PI * 360);
 
             float size = sizeChange + baseSize;
 
@@ -79,7 +75,29 @@ public class CreatureGenerator : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        
+        float zScale = 0;
+
+        for (int i = 0; i < length; i++)
+        {
+
+            float sizeChange = multiplier * baseSize * Mathf.Sin(frequency * ((i + 1) / length) * 90);
+
+            float size = sizeChange + baseSize;
+
+            if(size < 0)
+                size *= -1;
+
+            if (i != 0)
+                zScale += size / 2;
+
+            Gizmos.DrawCube(transform.position + transform.forward * -zScale, new Vector3(size, size, size));
+
+            
+            zScale += size/2;
+      
+
+
+        }
     }
 
 }
